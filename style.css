@@ -1,0 +1,25 @@
+.main {
+  margin: 15px;  
+}
+
+.todo-table {
+  border: 1px black solid;
+  width: 500px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  table-layout: fixed;
+}
+
+.todo-table-head {
+  border: 1px black solid;
+  background-color: white;
+}
+
+.todo-table-col {
+  text-align: center;
+  word-break: break-all;
+}
+
+.delete-button {
+  border-style: none;
+}

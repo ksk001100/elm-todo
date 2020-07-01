@@ -87,7 +87,7 @@ deleteTodo id todos =
 
 view : Model -> Html Msg
 view model =
-    div [ style "margin" "15px", align "center" ]
+    div [ class "main", align "center" ]
         [ Html.form [ onSubmit Submit ]
             [ input [ value model.input, onInput Input ] []
             , button
@@ -95,19 +95,12 @@ view model =
                 [ text "Submit" ]
             ]
         , table
-            [ style "border" "1px black solid"
-            , style "width" "500px"
-            , style "border-collapse" "collapse"
-            , style "margin" "20px 0"
-            , style "table-layout" "fixed"
-            ]
+            [ class "todo-table" ]
             [ thead
-                [ style "border" "1px solid black"
-                , style "background-color" "white"
-                ]
+                [ class "todo-table-head" ]
                 [ tr []
                     [ th [] [ text "ID" ]
-                    , th [ style "text-align" "left" ] [ text "TODO" ]
+                    , th [] [ text "TODO" ]
                     , th [] [ text "DEL" ]
                     ]
                 ]
@@ -120,15 +113,11 @@ viewTodo : Todo -> Html Msg
 viewTodo todo =
     tr
         [ height 50 ]
-        [ td [ style "text-align" "center" ] [ text (String.fromInt todo.id) ]
-        , td [ style "word-break" "break-all" ] [ text todo.body ]
-        , td [ style "text-align" "center" ]
+        [ td [ class "todo-table-col" ] [ text (String.fromInt todo.id) ]
+        , td [ class "todo-table-col" ] [ text todo.body ]
+        , td [ class "todo-table-col" ]
             [ button
-                [ style "background-color" "#fff"
-                , style "border-style" "none"
-                , style "border-radius" "5px"
-                , onClick (Delete todo.id)
-                ]
+                [ class "delete-button", onClick (Delete todo.id) ]
                 [ text "x" ]
             ]
         ]
